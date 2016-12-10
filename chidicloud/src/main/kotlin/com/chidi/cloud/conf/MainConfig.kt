@@ -48,7 +48,7 @@ class MainConfig : JFinalConfig() {
     }
 
     override fun configInterceptor(me: Interceptors) {
-
+        me.add(AuthInterceptor())
     }
 
     override fun configHandler(me: Handlers) {

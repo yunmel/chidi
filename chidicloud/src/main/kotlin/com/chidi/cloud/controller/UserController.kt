@@ -17,4 +17,9 @@ class UserController : Controller(){
     fun add(){
         render("add.html")
     }
+
+    fun get(){
+        println(getParaToLong(0))
+        renderJson()
+    }
 }
