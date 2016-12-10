@@ -1,0 +1,81 @@
+<section class="content">
+    <div class="row">
+       <div class="col-xs-12">
+         <div class="box" style="background-color: #fff;">
+           <div class="box-header">
+              <div class="pull-right">
+                <a href="javascript:void(0)" 
+                  data-mode="edit" 
+                  data-width='50%'
+                  data-title="添加用户"
+                  data-url="${ctxPath}/user/add"
+                  class="btn btn-primary btn-add btn-sm">
+                  	添加用户
+                </a>
+              </div>
+           </div>
+           <!-- /.box-header -->
+           <div class="box-body">
+              <table class="table table-bordered">
+                <thead>
+                  <td width="120">用户登录名</td>
+                  <td width="120">名称</td>
+                  <td width="50">操作</td>
+                </thead>
+                <tbody>
+                @for(u in users){
+                  <tr>
+                    <td>${u.username!}</td>
+                    <td>${u.name!}</td>
+                    <td>
+                    	<div class="action-buttons">
+	                        <a href="javascript:void(0)" 
+	                          data-mode="edit" 
+	                          data-width='50%'
+	                          data-title="【${u.name!}】编辑"
+	                          data-url="${ctxPath}/user/edit"
+	                          data-data="{id:'${u.id!}'}"
+	                          title="编辑" data-toggle="tooltip" data-placement="left"
+	                          class="green">
+	                          <i class="fa fa-pencil bigger-130"></i>
+	                        </a>
+	                        <a href="javascript:void(0)" 
+	                          data-mode="edit" 
+	                          data-size='size-wide'
+	                          data-width='50%'
+	                          data-title="【${u.name!}】密码重置"
+	                          data-url="${ctxPath}/user/resetpwd"
+	                          data-data="{id:'${u.id!}'}"
+	                          title="人员分配" data-toggle="tooltip" data-placement="left"
+	                          class="green">
+	                          <i class="fa fa-user bigger-130"></i>
+	                        </a>
+	                        <a href="javascript:void(0)" 
+	                          data-mode="sop" 
+	                          data-op="删除"
+	                          data-name="角色"
+	                          data-callback="query()"
+	                          data-url="${ctxPath}/user/delete/${r.id!}" 
+	                          title="删除" data-toggle="tooltip" data-placement="left"
+	                          class="red"
+	                          ><i class="fa fa-trash-o bigger-130"></i>
+	                        </a>
+                    	</div>
+
+                    </td>
+                  </tr>
+                  @}
+                </tbody>
+              </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<script type="text/javascript">
+  function query(){
+    $curmenu.trigger('click');
+  }
+</script>
+
