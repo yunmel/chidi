@@ -13,8 +13,7 @@ import java.io.FileOutputStream
 class CopyFile {
 
     companion object{
-        @Throws(IOException::class)
-        public fun copyFileUsingFileChannels(source: File, dest: File) {
+        @Throws(IOException::class) fun copyFileUsingFileChannels(source: File, dest: File) {
             var inputChannel: FileChannel? = null
             var outputChannel: FileChannel? = null
             try {
@@ -32,7 +31,7 @@ class CopyFile {
 
 fun main(args: Array<String>) {
     val dirPath = "D:\\Project\\Paas\\文档\\paas\\工作周报";
-    val files = File(dirPath).listFiles(FilenameFilter { file, s -> s.endsWith(".doc") })
+    val files = File(dirPath).listFiles({ file, s -> s.endsWith(".doc") })
     //files.map { println(it.name) }
     val sourceFile = File(dirPath,"templet.xlsx")
     files.map {
